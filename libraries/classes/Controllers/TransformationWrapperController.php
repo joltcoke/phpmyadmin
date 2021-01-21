@@ -194,11 +194,11 @@ class TransformationWrapperController extends AbstractController
             $ratioHeight = $srcHeight / $_REQUEST['newHeight'];
 
             if ($ratioWidth < $ratioHeight) {
-                $destWidth = $srcWidth / $ratioHeight;
-                $destHeight = $_REQUEST['newHeight'];
+                $destWidth = (int)round($srcWidth / $ratioHeight);
+                $destHeight = (int)$_REQUEST['newHeight'];
             } else {
-                $destWidth = $_REQUEST['newWidth'];
-                $destHeight = $srcHeight / $ratioWidth;
+                $destWidth = (int)$_REQUEST['newWidth'];
+                $destHeight = (int)round($srcHeight / $ratioWidth);
             }
 
             if ($_REQUEST['resize']) {
